@@ -1,6 +1,6 @@
 import { getPosts } from "@/shared/api";
 
-export default async function SSR() {
+export default async function Posts() {
   const posts = await getPosts();
 
   return (
