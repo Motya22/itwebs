@@ -29,7 +29,9 @@ export function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
-        {children}
+        <main className="flex flex-col items-center gap-y-5 py-5">
+          {children}
+        </main>
       </body>
     </html>
   );
