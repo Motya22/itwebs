@@ -1,11 +1,6 @@
 import type { Post } from "../../model";
+import { client } from "../client";
 
-export const getPosts = async (): Promise<Post[]> => {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-
-  if (!response.ok) {
-    throw new Error("Unable to get posts");
-  }
-
-  return response.json();
+export const getPosts = async () => {
+  return client.get<Post[]>("/posts", "Unable to get posts");
 };
