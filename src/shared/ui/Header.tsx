@@ -23,6 +23,14 @@ export default function Header() {
           </li>
           <li>
             <Link
+              href={"/isr"}
+              className="transition-colors hover:text-background/80"
+            >
+              ISR
+            </Link>
+          </li>
+          <li>
+            <Link
               href={"/csr"}
               className="transition-colors hover:text-background/80"
             >
