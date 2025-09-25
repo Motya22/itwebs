@@ -10,7 +10,13 @@ export default async function Posts() {
       <ul>
         {posts.map((post) => (
           <li key={post.id}>
-            <Link href={`/ssr/${post.id}`}>{post.title}</Link>
+            Post Title / Link:{" "}
+            <Link
+              href={`/ssr/${post.id}`}
+              className="transition-colors hover:text-primary/50"
+            >
+              {post.title}
+            </Link>
           </li>
         ))}
       </ul>

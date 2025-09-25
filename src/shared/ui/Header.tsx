@@ -6,13 +6,28 @@ export default function Header() {
       <nav className="px-4">
         <ul className="flex justify-center items-center flex-wrap gap-x-5">
           <li>
-            <Link href={"/"}>Home</Link>
+            <Link
+              href={"/"}
+              className="transition-colors hover:text-background/80"
+            >
+              Home
+            </Link>
           </li>
           <li>
-            <Link href={"/ssr"}>SSR</Link>
+            <Link
+              href={"/ssr"}
+              className="transition-colors hover:text-background/80"
+            >
+              SSR
+            </Link>
           </li>
           <li>
-            <Link href={"/csr"}>CSR</Link>
+            <Link
+              href={"/csr"}
+              className="transition-colors hover:text-background/80"
+            >
+              CSR
+            </Link>
           </li>
         </ul>
       </nav>
