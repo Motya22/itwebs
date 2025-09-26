@@ -10,7 +10,7 @@ export default async function Posts() {
     <>
       <h1>Posts Page</h1>
       <p>
-        After 60 seconds from the first request, a new request will trigger the
+        After 10 seconds from the first request, a new request will trigger the
         page regeneration process and only subsequent requests will receive the
         new page (with the new post, if one has been added to the database).
       </p>

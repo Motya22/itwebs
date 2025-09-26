@@ -1,1 +1,1 @@
-export { default as ISRPage, generateStaticParams } from "./ui/ISRPage";
+export { default as ISRPage } from "./ui/ISRPage";
