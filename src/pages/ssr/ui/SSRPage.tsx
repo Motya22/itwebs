@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AddPostModal } from "@/features/add-post";
 import { getPosts } from "@/shared/api";
 
 export default async function Posts() {
@@ -7,6 +8,7 @@ export default async function Posts() {
   return (
     <>
       <h1>Posts Page</h1>
+      <AddPostModal />
       <ul>
         {posts.map((post) => (
           <li key={post.id}>

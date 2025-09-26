@@ -18,7 +18,11 @@ import {
 import type { AddPostFormValues } from "../model/addPostSchema";
 import { addPostFormSchema } from "../model/addPostSchema";
 
-export default function AddPostForm() {
+export default function AddPostForm({
+  onCloseModal,
+}: {
+  onCloseModal: () => void;
+}) {
   const form = useForm<AddPostFormValues>({
     resolver: zodResolver(addPostFormSchema),
     defaultValues: {
@@ -28,6 +32,7 @@ export default function AddPostForm() {
   });
 
   function onSubmit(data: AddPostFormValues) {
+    onCloseModal();
     toast("You submitted the following values", {
       description: (
         <pre className="mt-2 w-[320px] rounded-md bg-neutral-950 p-4">
@@ -39,7 +44,7 @@ export default function AddPostForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <FormField
           control={form.control}
           name="title"
