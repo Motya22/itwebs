@@ -1,7 +1,10 @@
 import { BACKEND_BASE_URL } from "../config";
 
 export const client = {
-  async get<T>(endpoint: string, errorMessage: string): Promise<T> {
+  async get<ReturnType>(
+    endpoint: string,
+    errorMessage: string,
+  ): Promise<ReturnType> {
     const response = await fetch(`${BACKEND_BASE_URL}${endpoint}`);
 
     if (!response.ok) {
@@ -10,12 +13,12 @@ export const client = {
 
     return response.json();
   },
-  async post(
+  async post<ReturnType, BodyType>(
     endpoint: string,
-    body: any,
+    body: BodyType,
     errorMessage: string,
     options?: RequestInit,
-  ) {
+  ): Promise<ReturnType> {
     const response = await fetch(`${BACKEND_BASE_URL}${endpoint}`, {
       method: "POST",
       body: JSON.stringify(body),
