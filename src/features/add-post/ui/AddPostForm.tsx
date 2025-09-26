@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
+import { addPost } from "@/shared/api";
 import {
   Button,
   Form,
@@ -31,15 +32,30 @@ export default function AddPostForm({
     },
   });
 
-  function onSubmit(data: AddPostFormValues) {
-    onCloseModal();
-    toast("You submitted the following values", {
-      description: (
-        <pre className="mt-2 w-[320px] rounded-md bg-neutral-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
+  async function onSubmit(data: AddPostFormValues) {
+    try {
+      const newPostData = await addPost({
+        title: data.title,
+        body: data.body,
+        userId: 1,
+      });
+      onCloseModal();
+      toast.success("Post has been created", {
+        description: (
+          <pre className="mt-2 w-[300px] rounded-md bg-neutral-950 p-4">
+            <code className="text-white">
+              {JSON.stringify(newPostData, null, 2)}
+            </code>
+          </pre>
+        ),
+      });
+    } catch (error) {
+      if (error instanceof Error) {
+        toast.error(error.message);
+      } else {
+        toast.error("Unknown error occurred");
+      }
+    }
   }
 
   return (

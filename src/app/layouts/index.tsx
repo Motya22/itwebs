@@ -32,7 +32,7 @@ export function RootLayout({
         <main className="flex flex-col items-center gap-y-5 p-5">
           {children}
         </main>
-        <Toaster />
+        <Toaster richColors />
       </body>
     </html>
   );
